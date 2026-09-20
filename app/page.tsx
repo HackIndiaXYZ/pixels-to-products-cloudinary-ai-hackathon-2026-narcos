@@ -208,20 +208,20 @@ export default function Home() {
 
           <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
             <Link href="/upload">
-              <Button size="lg" className="rounded-full gap-2 font-semibold shadow-lg shadow-primary/20 px-8">
+              <Button size="lg" className="rounded-full cursor-pointer gap-2 font-semibold shadow-lg shadow-primary/20 px-8">
                 <Sparkles className="size-4" />
                 Launch Ingestion Studio
                 <ArrowRight className="size-4" />
               </Button>
             </Link>
             <a href="#sandbox">
-              <Button size="lg" variant="outline" className="rounded-full gap-2 font-medium px-6">
+              <Button size="lg" variant="outline" className="rounded-full cursor-pointer gap-2 font-medium px-6">
                 <Sliders className="size-4 text-primary" />
                 1-Click Demo Sandbox
               </Button>
             </a>
             <Link href="/video">
-              <Button size="lg" variant="ghost" className="rounded-full gap-2 font-medium px-6 text-muted-foreground hover:text-foreground">
+              <Button size="lg" variant="ghost" className="rounded-full cursor-pointer gap-2 font-medium px-6 text-muted-foreground hover:text-foreground">
                 <Film className="size-4 text-amber-500" />
                 HLS Video Engine
               </Button>
