@@ -6,8 +6,7 @@ Lumina is an autonomous commerce media compiler built for the Cloudinary AI Hack
 
 ## Live Demo
 
-* **Demo URL:** (Paste your Vercel URL here once deployed)
-* **Demo Video:** (Paste your video link here)
+- **Demo URL:** https://lumina-cloudinary.vercel.app/
 
 ## Architecture Overview
 
@@ -20,15 +19,15 @@ graph TD
     C -->|Score >= 85| D[Production Ready]
     C -->|Score < 50| E[Auto Reject]
     C -->|Score 50-84| F[Transformation Pipeline]
-    
+
     F --> G[Generative Background Replace]
     G --> H[Content-Aware Saliency Crop]
     H --> I[Photometric Auto-Enhance]
     I --> J{Secondary AI Audit}
-    
+
     J -->|Pass| D
     J -->|Fail| K[Flag for Manual Review]
-    
+
     D --> L[Attach Structured Metadata]
     L --> M[Cloudinary Lucene Search Index]
     M --> N[Multi-channel Delivery AVIF/WebP/HLS]
@@ -52,26 +51,30 @@ Cloudinary is the core infrastructure powering the ingestion, transformation, in
 ## Setup and Installation
 
 ### Prerequisites
-* Node.js 18+
-* A Cloudinary Account (Cloud Name, API Key, API Secret)
-* A PostgreSQL Database (e.g., Neon, Supabase)
-* Google AI Studio Gemini API Key
+
+- Node.js 18+
+- A Cloudinary Account (Cloud Name, API Key, API Secret)
+- A PostgreSQL Database (e.g., Neon, Supabase)
+- Google AI Studio Gemini API Key
 
 ### Local Development
 
 1. Clone the repository:
+
 ```bash
 git clone https://github.com/priyansh-narang2308/pixels-to-products-cloudinary-ai-hackathon-2026-narcos.git
 cd pixels-to-products-cloudinary-ai-hackathon-2026-narcos
 ```
 
 2. Install dependencies:
+
 ```bash
 npm install
 ```
 
 3. Configure Environment Variables:
-Copy `.env.example` to `.env` and fill in your keys:
+   Copy `.env.example` to `.env` and fill in your keys:
+
 ```bash
 NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME=your_cloud_name
 NEXT_PUBLIC_CLOUDINARY_API_KEY=your_api_key
@@ -85,15 +88,18 @@ NEXT_PUBLIC_APP_URL=http://localhost:3000
 ```
 
 4. Generate Prisma Client and push schema:
+
 ```bash
 npx prisma generate
 npx prisma db push
 ```
 
 5. Start the development server:
+
 ```bash
 npm run dev
 ```
+
 The application will be available at `http://localhost:3000`.
 
 ## Usage Instructions
