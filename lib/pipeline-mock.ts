@@ -37,7 +37,7 @@ export async function runMockPipeline(
   const delay = (ms: number) => sleep(Math.max(50, Math.round(ms / speed)));
 
   const publicId =
-    options.publicId || `lumina/demo/${scenario}_${Date.now().toString().slice(-6)}`;
+    options.publicId || "sample";
   const assetId = `mock_asset_${scenario}_${Date.now()}`;
 
   console.log(`[Mock Pipeline] 🎬 Starting simulated compilation for: ${scenario} (${publicId})`);
@@ -332,45 +332,45 @@ export async function runMockPipeline(
     },
   });
 
-  try {
-    const demoArtisan = await prisma.user.findFirst();
-    if (demoArtisan) {
-      await prisma.asset.upsert({
-        where: { publicId },
-        update: {
-          scoreBefore: initialAudit.overall_score,
-          scoreAfter: verifiedAudit.overall_score,
-          scoreDelta: metrics.scoreDelta,
-          status: "approved",
-          heroUrl: familyUrls.hero,
-          marketplaceUrl: familyUrls.marketplace,
-          bannerUrl: familyUrls.banner,
-          lifestyleUrl: familyUrls.lifestyle,
-          socialUrl: familyUrls.social,
-        },
-        create: {
-          publicId,
-          secureUrl: repairedImageUrl,
-          userId: demoArtisan.id,
-          scoreBefore: initialAudit.overall_score,
-          scoreAfter: verifiedAudit.overall_score,
-          scoreDelta: metrics.scoreDelta,
-          status: "approved",
-          decision: "REPAIR",
-          productCategory: initialAudit.semantics.product_category,
-          seoDescription: initialAudit.semantics.seo_description,
-          dominantColors: initialAudit.semantics.dominant_colors,
-          heroUrl: familyUrls.hero,
-          marketplaceUrl: familyUrls.marketplace,
-          bannerUrl: familyUrls.banner,
-          lifestyleUrl: familyUrls.lifestyle,
-          socialUrl: familyUrls.social,
-        },
-      });
-    }
-  } catch {
-
-  }
+  // try {
+  //   const demoArtisan = await prisma.user.findFirst();
+  //   if (demoArtisan) {
+  //     await prisma.asset.upsert({
+  //       where: { publicId },
+  //       update: {
+  //         scoreBefore: initialAudit.overall_score,
+  //         scoreAfter: verifiedAudit.overall_score,
+  //         scoreDelta: metrics.scoreDelta,
+  //         status: "approved",
+  //         heroUrl: familyUrls.hero,
+  //         marketplaceUrl: familyUrls.marketplace,
+  //         bannerUrl: familyUrls.banner,
+  //         lifestyleUrl: familyUrls.lifestyle,
+  //         socialUrl: familyUrls.social,
+  //       },
+  //       create: {
+  //         publicId,
+  //         secureUrl: repairedImageUrl,
+  //         userId: demoArtisan.id,
+  //         scoreBefore: initialAudit.overall_score,
+  //         scoreAfter: verifiedAudit.overall_score,
+  //         scoreDelta: metrics.scoreDelta,
+  //         status: "approved",
+  //         decision: "REPAIR",
+  //         productCategory: initialAudit.semantics.product_category,
+  //         seoDescription: initialAudit.semantics.seo_description,
+  //         dominantColors: initialAudit.semantics.dominant_colors,
+  //         heroUrl: familyUrls.hero,
+  //         marketplaceUrl: familyUrls.marketplace,
+  //         bannerUrl: familyUrls.banner,
+  //         lifestyleUrl: familyUrls.lifestyle,
+  //         socialUrl: familyUrls.social,
+  //       },
+  //     });
+  //   }
+  // } catch {
+  // 
+  // }
 
   return {
     assetId,
