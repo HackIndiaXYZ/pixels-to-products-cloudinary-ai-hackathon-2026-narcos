@@ -41,6 +41,10 @@ Lumina was built to solve this dilemma by treating media ingestion as a determin
 
 ---
 
+## Architecture Diagram
+
+![Lumina Architecture](./architecture.png)
+
 ## System Architecture
 
 ```mermaid
